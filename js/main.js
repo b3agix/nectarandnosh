@@ -1,7 +1,5 @@
-// Nectar & Nosh - scroll life: reveals + gentle hero parallax
+// Nectar & Nosh - reveals + nav state
 (function () {
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   // reveal on scroll
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
@@ -10,20 +8,17 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
-  // hero jar parallax
-  var jar = document.getElementById('heroJar');
-  if (jar && !reduced) {
-    var ticking = false;
-    window.addEventListener('scroll', function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        var y = window.scrollY;
-        if (y < window.innerHeight * 1.2) {
-          jar.style.transform = 'translateY(' + y * 0.18 + 'px) scale(' + Math.max(1 - y / 4000, 0.92) + ')';
-        }
-        ticking = false;
-      });
-    }, { passive: true });
+  // nav turns solid once the film hands off to the shelf
+  var nav = document.getElementById('nav');
+  var track = document.querySelector('.hero-track');
+  if (!nav) return;
+  function navState() {
+    var threshold = track
+      ? track.offsetTop + track.offsetHeight - window.innerHeight * 0.6
+      : 40;
+    nav.classList.toggle('solid', window.scrollY > threshold);
   }
+  window.addEventListener('scroll', navState, { passive: true });
+  window.addEventListener('resize', navState);
+  navState();
 })();
