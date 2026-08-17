@@ -15,21 +15,24 @@
 </head>
 <body>
 
-<!-- ============ B · The cinematic door ============ -->
-<section class="hero" id="top">
-  <div class="hero-inner">
-    <img class="hero-badge reveal" src="assets/img/favicon-512.png" alt="Nectar &amp; Nosh badge" width="120" height="120">
-    <p class="hero-eyebrow reveal">Nectar &amp; Nosh &middot; Fine Provisions</p>
-    <h1 class="reveal">Slow&#8209;Simmered<br>Perfection.</h1>
-    <p class="hero-sub reveal">Tomato jam and Dubai chocolate,<br class="desktop-br"> handmade in Ontario.</p>
-    <div class="hero-art" aria-hidden="true">
-      <img src="assets/img/hero-jar.jpg" alt="" id="heroJar">
+<!-- ============ B · The cinematic door: scroll-scrubbed flight ============ -->
+<section class="hero-track" id="top">
+  <div class="hero-stage">
+    <video id="heroFilm" muted playsinline preload="none" poster="assets/img/hero-poster.jpg"></video>
+    <div class="ho ho-start">
+      <img class="hero-badge" src="assets/img/favicon-512.png" alt="Nectar &amp; Nosh badge" width="108" height="108">
+      <p class="hero-eyebrow">Nectar &amp; Nosh &middot; Fine Provisions</p>
+      <h1>Slow&#8209;Simmered<br class="m-br"> Perfection.</h1>
     </div>
+    <div class="ho ho-end">
+      <h2>Deliciously Sweet.<br>Softly Savory.</h2>
+      <p>The Signature Tomato Jam</p>
+    </div>
+    <a class="scroll-cue" href="#jam" aria-label="Skip to the jam">
+      <span>Scroll to fly through the fields</span>
+      <svg width="16" height="22" viewBox="0 0 16 22" fill="none" aria-hidden="true"><path d="M8 1v18m0 0 6-6m-6 6-6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </div>
-  <a class="scroll-cue" href="#jam" aria-label="Scroll to the jam">
-    <span>Scroll to taste</span>
-    <svg width="16" height="22" viewBox="0 0 16 22" fill="none" aria-hidden="true"><path d="M8 1v18m0 0 6-6m-6 6-6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
 </section>
 
 <!-- ============ A · The provisions shelf ============ -->
@@ -115,5 +118,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/scroll-hero.js"></script>
 </body>
 </html>
