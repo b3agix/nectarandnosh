@@ -168,6 +168,8 @@ h2 {
 .wide img { border-radius: 10px; border: 1px solid var(--line); }
 
 /* story */
+.story-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
+.story-fig img { border-radius: 10px; border: 1px solid var(--line); }
 .story .prose { max-width: 66ch; }
 .story .prose p + p { margin-top: 18px; }
 
@@ -224,6 +226,7 @@ footer { margin-top: 118px; background: var(--card); border-top: 1px solid var(-
   .split, .split.flip { grid-template-columns: 1fr; gap: 28px; }
   .split.flip figure { order: 0; }
   .cards { grid-template-columns: 1fr; }
+  .story-grid { grid-template-columns: 1fr; gap: 28px; }
   .block { padding-top: 84px; }
   .shop-panel { padding: 44px 24px; }
   .foot-grid { grid-template-columns: 1fr; gap: 30px; }
