@@ -1,5 +1,10 @@
-// Nectar & Nosh - reveals + nav state
+// Nectar & Nosh - entrance, reveals, nav state
 (function () {
+  // hero entrance
+  window.addEventListener('load', function () { document.body.classList.add('loaded'); });
+  // fallback if load hangs on slow connections
+  setTimeout(function () { document.body.classList.add('loaded'); }, 1200);
+
   // reveal on scroll
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
@@ -8,17 +13,9 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
-  // nav turns solid once the film hands off to the shelf
+  // nav shadow after leaving the top
   var nav = document.getElementById('nav');
-  var track = document.querySelector('.hero-track');
-  if (!nav) return;
-  function navState() {
-    var threshold = track
-      ? track.offsetTop + track.offsetHeight - window.innerHeight * 0.6
-      : 40;
-    nav.classList.toggle('solid', window.scrollY > threshold);
-  }
+  function navState() { nav.classList.toggle('solid', window.scrollY > 24); }
   window.addEventListener('scroll', navState, { passive: true });
-  window.addEventListener('resize', navState);
   navState();
 })();

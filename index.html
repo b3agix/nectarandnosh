@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="css/main.css">
 </head>
-<body data-hero="scrub">
+<body>
 
 <!-- ============ announcement + nav ============ -->
 <div class="announce">Online ordering is coming soon &middot; <a href="https://www.instagram.com/nectarandnoshco" rel="noopener">Follow @nectarandnoshco</a></div>
@@ -31,23 +31,19 @@
   <a class="nav-btn" href="https://www.instagram.com/nectarandnoshco" rel="noopener">Follow</a>
 </header>
 
-<!-- ============ the cinematic door: scroll-scrubbed flight ============ -->
-<section class="hero-track" id="top">
-  <div class="hero-stage">
-    <video id="heroFilm" class="hero-media" muted playsinline preload="none" poster="assets/img/hero-poster.jpg"></video>
-    <img id="heroImg" class="hero-media" src="assets/img/hero-arrival.jpg" alt="" hidden>
-    <div class="ho ho-start">
-      <p class="hero-eyebrow">Nectar &amp; Nosh &middot; Fine Provisions</p>
-      <h1>Slow&#8209;Simmered<br class="m-br"> Perfection.</h1>
+<!-- ============ split hero ============ -->
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <p class="hero-eyebrow">Nectar &amp; Nosh &middot; Fine Provisions</p>
+    <h1>Deliciously Sweet.<br>Softly Savory.</h1>
+    <p class="hero-sub">A rich, handcrafted tomato conserve. Thick enough to stand a spoon in, and unlike anything on the market. Handmade in Ontario.</p>
+    <div class="hero-ctas">
+      <a class="hero-btn" href="https://www.instagram.com/nectarandnoshco" rel="noopener">Follow the journey</a>
+      <a class="hero-link" href="#jam">Meet the jam</a>
     </div>
-    <div class="ho ho-end">
-      <h2>Deliciously Sweet.<br>Softly Savory.</h2>
-      <p>The Signature Tomato Jam</p>
-    </div>
-    <a class="scroll-cue" href="#jam" aria-label="Skip to the jam">
-      <span>Scroll to taste</span>
-      <svg width="16" height="22" viewBox="0 0 16 22" fill="none" aria-hidden="true"><path d="M8 1v18m0 0 6-6m-6 6-6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/img/hero-jar-studio.jpg" alt="Nectar &amp; Nosh tomato jam jar with a spoon holding a thick dollop of conserve" fetchpriority="high">
   </div>
 </section>
 
@@ -163,6 +159,6 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script src="js/hero.js"></script>
+
 </body>
 </html>
