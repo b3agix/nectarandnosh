@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Nectar &amp; Nosh &middot; Fine Provisions</title>
-<meta name="description" content="Handmade tomato jam and Dubai chocolate sticks from Ontario. Deliciously sweet, softly savory.">
+<meta name="description" content="Handmade tomato jam and Dubai chocolate from an Ontario kitchen. Deliciously sweet, softly savory.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
 <meta property="og:title" content="Nectar &amp; Nosh &middot; Fine Provisions">
-<meta property="og:description" content="Handmade tomato jam and Dubai chocolate sticks from Ontario.">
+<meta property="og:description" content="Handmade tomato jam and Dubai chocolate from an Ontario kitchen.">
 <meta property="og:image" content="assets/img/og.jpg">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="css/main.css?v=3">
+<link rel="stylesheet" href="css/main.css?v=4">
 </head>
 <body>
 
@@ -25,25 +25,33 @@
   <nav class="links" aria-label="Sections">
     <a href="#jam">The Jam</a>
     <a href="#chocolate">The Chocolate</a>
-    <a href="#story">Our Story</a>
+    <a href="story.html">Our Story</a>
     <a href="#shop">The Shop</a>
   </nav>
   <a class="nav-btn" href="https://www.instagram.com/nectarandnoshco" rel="noopener">Follow</a>
 </header>
 
-<!-- ============ split hero ============ -->
-<section class="hero" id="top">
-  <div class="hero-copy">
-    <p class="hero-eyebrow">Nectar &amp; Nosh &middot; Fine Provisions</p>
-    <h1>Deliciously Sweet.<br>Softly Savory.</h1>
-    <p class="hero-sub">A rich, handcrafted tomato conserve. Thick enough to stand a spoon in, and unlike anything on the market. Handmade in Ontario.</p>
-    <div class="hero-ctas">
-      <a class="hero-btn" href="https://www.instagram.com/nectarandnoshco" rel="noopener">Follow the journey</a>
-      <a class="hero-link" href="#jam">Meet the jam</a>
+<!-- ============ hero slider ============ -->
+<section class="hero-slider" id="top" aria-label="Nectar &amp; Nosh">
+  <div class="slide is-active">
+    <img src="assets/img/hero-slide-family.jpg" alt="A mother spreading thick tomato jam on toast for her son at a sunny breakfast table" fetchpriority="high">
+  </div>
+  <div class="slide">
+    <img src="assets/img/hero-slide-bbq.jpg" alt="A backyard barbecue with a jar of Nectar &amp; Nosh tomato jam beside the buns" loading="lazy">
+  </div>
+  <div class="hero-ov">
+    <div class="hero-ov-inner">
+      <p class="hero-eyebrow">Nectar &amp; Nosh &middot; Fine Provisions</p>
+      <h1>Deliciously Sweet.<br class="m-br"> Softly Savory.</h1>
+      <div class="hero-ctas">
+        <a class="hero-btn" href="#jam">Meet the jam</a>
+        <a class="hero-link" href="https://www.instagram.com/nectarandnoshco" rel="noopener">Follow the journey</a>
+      </div>
     </div>
   </div>
-  <div class="hero-photo">
-    <img src="assets/img/pairing-toast.jpg" alt="Sourdough toast with a thick layer of Nectar &amp; Nosh tomato jam beside the jar" fetchpriority="high">
+  <div class="dots" role="tablist" aria-label="Hero slides">
+    <button class="dot is-active" aria-label="Slide 1"></button>
+    <button class="dot" aria-label="Slide 2"></button>
   </div>
 </section>
 
@@ -60,9 +68,24 @@
       <div class="copy reveal">
         <p class="lede">A rich, handcrafted fruit conserve unlike anything on the market. Lusciously sweet forward with a gentle, subtle hint of savory richness that makes every bite unforgettable.</p>
         <p>Plump, vine-ripened tomatoes, a kiss of cane sugar, and a chorus of warm spices, slow-cooked until the kitchen smells like a late-summer evening. No shortcuts. Just pure, unadulterated nectar.</p>
-        <div class="pricecard">
-          <div class="p-main">$12.99 <span>&middot; 250 ml jar</span></div>
-          <div class="p-sub">Thick enough to stand a spoon in. Handmade in Ontario.</div>
+        <p class="madeline">Thick enough to stand a spoon in. Handmade in Ontario.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="choc-band" id="chocolate">
+    <div class="block choc-inner">
+      <p class="eyebrow light reveal">The Dubai Chocolate</p>
+      <h2 class="reveal">Not a bar. Not a lollipop.<br>A Nosh.</h2>
+      <div class="split flip">
+        <figure class="reveal">
+          <img src="assets/img/stick-bag.jpg" alt="Dubai chocolate stick in its cello bag on a kraft card with the Nectar &amp; Nosh sticker" loading="lazy">
+        </figure>
+        <div class="copy reveal">
+          <p class="lede">Every Nectar &amp; Nosh bar is built for one moment: the snap. A shell that breaks clean, then gives way &mdash; crisp and creamy in the same bite.</p>
+          <p class="choc-pull">Hold it. Bite it. Hear it go.</p>
+          <p>Because big chocolate bars are a dare &mdash; half gets eaten, half gets rewrapped, and everyone pretends that's normal. Ours is two fingers on a stick, sized to the exact width of a craving.</p>
+          <p class="fine">Contains pistachio and sesame.</p>
         </div>
       </div>
     </div>
@@ -70,7 +93,7 @@
 
   <section class="block pairings">
     <p class="eyebrow reveal">The Pairing Guide</p>
-    <h2 class="reveal">One jar, three lives.</h2>
+    <h2 class="reveal">One jar, three ways.</h2>
     <div class="cards">
       <article class="card reveal">
         <span class="card-n">I</span>
@@ -93,37 +116,18 @@
     </figure>
   </section>
 
-  <section class="block" id="chocolate">
-    <p class="eyebrow reveal">The Dubai Chocolate Stick</p>
-    <h2 class="reveal">The viral sensation,<br>perfected on a stick.</h2>
-    <div class="split flip">
-      <figure class="reveal">
-        <img src="assets/img/stick-bag.jpg" alt="Dubai chocolate stick in its cello bag on a kraft card with the Nectar &amp; Nosh sticker" loading="lazy">
-      </figure>
-      <div class="copy reveal">
-        <p class="lede">The world-famous Middle Eastern dessert trend, reimagined as a perfectly portioned, two-finger luxury treat.</p>
-        <p>A balanced chocolate shell that yields to a rich pistachio and kunafa center with a signature snap.</p>
-        <div class="pricecard">
-          <div class="p-main">$5.50 <span>&middot; each</span></div>
-          <div class="p-sub">2 for $10 &middot; 3 for $14.50</div>
-          <div class="p-fine">Contains pistachio and sesame.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="block story" id="story">
     <p class="eyebrow reveal">Our Story</p>
     <h2 class="reveal">It began with a single, unforgettable bite.</h2>
     <div class="story-grid">
-    <div class="prose reveal">
-      <p class="lede">At a twilight cocktail party, a beautifully crafted burger slider was served with an unexpected star: tomato jam. Already deep in the world of from-scratch sauces, we were completely captivated by this sweet and savory revelation.</p>
-      <p>Back home, the search for a high-quality tomato jam across the GTA came up empty. If we wanted a fresh, artisanal conserve, we would have to craft it ourselves.</p>
-      <p>So we studied, blended techniques and traditions, and simmered batch after batch until the balance was perfect. Nectar &amp; Nosh was born from a simple desire: to make this incredible flavor accessible to everyone. Whether it elevates a backyard burger or completes a rustic cheese board, this is the missing ingredient your pantry has been waiting for.</p>
-    </div>
-    <figure class="reveal story-fig">
-      <img src="assets/img/story-slider.jpg" alt="A burger slider with a thick layer of tomato jam, the jar and crackers beside it" loading="lazy">
-    </figure>
+      <div class="prose reveal">
+        <p class="lede">At a twilight cocktail party, a beautifully crafted burger slider was served with an unexpected star: tomato jam. What started as one unforgettable bite became a hundred nights in one Ontario kitchen, getting every detail right.</p>
+        <p>Behind every jar and every bar is one maker: Danny C. Thirty years of building software, now building with his hands.</p>
+        <a class="hero-btn story-btn" href="story.html">Read the full story</a>
+      </div>
+      <figure class="reveal story-fig">
+        <img src="assets/img/dany-chef.jpg" alt="Danny C., the maker behind Nectar &amp; Nosh, in his chef jacket" loading="lazy">
+      </figure>
     </div>
   </section>
 
@@ -151,7 +155,7 @@
       <h4>Explore</h4>
       <a href="#jam">The Jam</a>
       <a href="#chocolate">The Chocolate</a>
-      <a href="#story">Our Story</a>
+      <a href="story.html">Our Story</a>
       <a href="#shop">The Shop</a>
     </div>
     <div class="foot-col">
@@ -163,7 +167,6 @@
   <p class="foot-legal">&copy; 2026 Nectar &amp; Nosh &middot; Fine Provisions &middot; Ontario, Canada</p>
 </footer>
 
-<script src="js/main.js?v=3"></script>
-
+<script src="js/main.js?v=4"></script>
 </body>
 </html>
