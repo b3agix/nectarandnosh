@@ -28,7 +28,10 @@
   function goTo(n) {
     idx = (n + slides.length) % slides.length;
     slides.forEach(function (s, i) { s.classList.toggle('is-active', i === idx); });
-    dots.forEach(function (d, i) { d.classList.toggle('is-active', i === idx); });
+    dots.forEach(function (d, i) {
+      d.classList.toggle('is-active', i === idx);
+      i === idx ? d.setAttribute('aria-current', 'true') : d.removeAttribute('aria-current');
+    });
   }
   function play() {
     if (reduced || slides.length < 2) return;

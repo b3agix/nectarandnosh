@@ -17,6 +17,8 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 10px); }
+/* the logo should return to the true top, not stop under the sticky header */
+#top { scroll-margin-top: calc(-1 * (var(--nav-h) + 10px)); }
 body {
   font-family: 'Aleo', Georgia, serif;
   font-size: 17px;
@@ -24,7 +26,7 @@ body {
   color: var(--ink);
   background: var(--bg);
 }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: var(--acc); text-underline-offset: 3px; }
 a:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; border-radius: 2px; }
 
@@ -60,8 +62,10 @@ a:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; border-rad
 .links a {
   text-decoration: none; color: var(--ink); font-weight: 600; font-size: 14.5px;
   letter-spacing: .04em; padding: 6px 2px; border-bottom: 2px solid transparent;
+  white-space: nowrap;
 }
 .links a:hover { border-bottom-color: var(--acc); }
+.links a[aria-current] { border-bottom-color: var(--acc); color: var(--acc); }
 .nav-btn {
   flex: none;
   background: var(--acc); color: var(--acc-ink); text-decoration: none;
@@ -158,7 +162,7 @@ body.loaded .hero-ov-inner > *:nth-child(3) { animation-delay: .38s; }
   color: var(--acc); margin-bottom: 14px;
 }
 .eyebrow.light { color: #ffd9c4; }
-h2 {
+h2, .shelf h1 {
   font-weight: 700; font-size: clamp(32px, 4.8vw, 48px); line-height: 1.1;
   text-wrap: balance; margin-bottom: 30px;
 }
@@ -217,8 +221,8 @@ h2 {
 /* story */
 .story-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
 .story-fig img { border-radius: 10px; border: 1px solid var(--line); }
-.story .prose { max-width: 66ch; }
-.story .prose p + p { margin-top: 18px; }
+.prose { max-width: 66ch; }
+.prose p + p { margin-top: 18px; }
 
 /* shop panel */
 .shop-panel {
@@ -263,12 +267,47 @@ footer { margin-top: 118px; background: var(--card); border-top: 1px solid var(-
 }
 
 /* ---------- responsive ---------- */
+/* Narrow nav, in stages: the "The/Our" prefixes go first, then the wordmark,
+   so the four section links always stay on screen. No hamburger, nothing hidden. */
 @media (max-width: 860px) {
-  .links { display: none; }
+  .nav { gap: 18px; }
+  .links .t { display: none; }
+  .links {
+    margin: 0 auto;
+    overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .links::-webkit-scrollbar { display: none; }
+  .links a { padding: 10px 0; }
+  /* weight carries the current page where the underline would float below the text */
+  .links a[aria-current] { border-bottom-color: transparent; font-weight: 700; }
+  .nav-btn { padding: 11px 20px; }
+}
+@media (max-width: 620px) {
+  .nav { gap: 14px; padding: 0 14px; }
+  .brand span { display: none; }
+  .links { gap: 16px; }
+  .links a { font-size: 13.5px; letter-spacing: .02em; }
+  .nav-btn { padding: 11px 15px; font-size: 13.5px; }
+}
+@media (max-width: 400px) {
+  .nav { gap: 10px; }
+  .links { gap: 13px; }
+  .links a { font-size: 13px; }
+  .nav-btn { padding: 11px 13px; font-size: 13px; }
+}
+@media (max-width: 359px) {
+  .nav { gap: 8px; padding: 0 10px; }
+  .links { gap: 10px; }
+  .links a { font-size: 12.5px; }
+  .nav-btn { padding: 10px 11px; font-size: 12.5px; }
 }
 @media (max-width: 760px) {
   body { font-size: 16px; }
-  .hero-slider { height: auto; aspect-ratio: 4 / 5; max-height: 88svh; min-height: 440px; }
+  /* width must be definite, or min-height drives the WIDTH through aspect-ratio:
+     that pushed the document past the viewport on small phones and left half the
+     screen blank in landscape */
+  .hero-slider { width: 100%; height: auto; aspect-ratio: 4 / 5; max-height: 88svh; min-height: 440px; }
   .hero-slider .slide img { object-position: center; }
   .hero-ov h1 { font-size: 30px; }
   .hero-eyebrow { font-size: 11.5px; margin-bottom: 8px; }
