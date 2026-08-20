@@ -23,7 +23,7 @@
   var slides = slider.querySelectorAll('.slide');
   var dots = slider.querySelectorAll('.dot');
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var idx = 0, timer = null;
+  var idx = 0, timer = null, userTook = false;
 
   function goTo(n) {
     idx = (n + slides.length) % slides.length;
@@ -34,14 +34,16 @@
     });
   }
   function play() {
-    if (reduced || slides.length < 2) return;
+    if (reduced || userTook || slides.length < 2) return;
     stop();
     timer = setInterval(function () { goTo(idx + 1); }, 6500);
   }
   function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  // a deliberate tap or swipe means the visitor is driving: stop for good
+  function takeOver() { userTook = true; stop(); }
 
   dots.forEach(function (d, i) {
-    d.addEventListener('click', function () { goTo(i); play(); });
+    d.addEventListener('click', function () { goTo(i); takeOver(); });
   });
 
   var x0 = null;
@@ -49,9 +51,15 @@
   slider.addEventListener('touchend', function (e) {
     if (x0 === null) return;
     var dx = e.changedTouches[0].clientX - x0;
-    if (Math.abs(dx) > 40) { goTo(idx + (dx < 0 ? 1 : -1)); play(); }
+    if (Math.abs(dx) > 40) { goTo(idx + (dx < 0 ? 1 : -1)); takeOver(); }
     x0 = null;
   }, { passive: true });
+
+  // pause while the hero is being read or focused
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', play);
+  slider.addEventListener('focusin', stop);
+  slider.addEventListener('focusout', play);
 
   document.addEventListener('visibilitychange', function () {
     document.hidden ? stop() : play();
